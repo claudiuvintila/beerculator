@@ -41,6 +41,9 @@
     if (currentUser) {
         // do stuff with the user
         NSLog(@"%@", currentUser);
+        
+        [Utils allDebtsForUser:currentUser forDelegate:self];
+        [Utils allDebtsFromOthers:currentUser forDelegate:self];
     } else {
         // show the signup or login screen
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
@@ -48,8 +51,7 @@
         [self presentViewController:logInController animated:YES completion:NULL];
     }
 
-    [Utils allDebtsForUser:currentUser forDelegate:self];
-    [Utils allDebtsFromOthers:currentUser forDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,6 +62,9 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
+    [Utils allDebtsForUser:user forDelegate:self];
+    [Utils allDebtsFromOthers:user forDelegate:self];
+
     [logInController dismissViewControllerAnimated:YES completion:NULL];
 }
 

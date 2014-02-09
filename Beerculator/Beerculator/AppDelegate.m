@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DebtsViewController.h"
+#import "DebtSetViewController.h"
 #import <Parse/Parse.h>
 
 @implementation AppDelegate
@@ -24,8 +25,11 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    DebtsViewController * debtsController = [[DebtsViewController alloc] init];
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:debtsController];
+//    DebtsViewController * debtsController = [[DebtsViewController alloc] init];
+//    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:debtsController];
+    
+    DebtSetViewController * debtSetViewController = [[DebtSetViewController alloc] init];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:debtSetViewController];
     
     self.window.rootViewController = navigationController;
     
