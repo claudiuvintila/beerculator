@@ -8,7 +8,7 @@
 
 #import "DebtsViewController.h"
 #import "Utils.h"
-
+#import "FriendsViewController.h"
 @interface DebtsViewController ()
 
 @end
@@ -41,9 +41,11 @@
         logInController.delegate = self;
         [self presentViewController:logInController animated:YES completion:NULL];
     }
-    
+    FriendsViewController * cont = [[FriendsViewController alloc] initWithNibName:@"FriendsViewController" bundle:nil];
+    [self presentViewController:cont animated:YES completion:Nil];
 //    [Utils storeDebt:[NSNumber numberWithInt:3] forUsername:@"silviuvert"];
-    [Utils allDebts:currentUser];
+//    [Utils allDebts:currentUser];
+
 }
 
 - (void)didReceiveMemoryWarning

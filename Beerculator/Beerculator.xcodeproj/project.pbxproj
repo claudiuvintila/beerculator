@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E610D9218A79FAB00639E2D /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E610D9018A79FAB00639E2D /* FriendsViewController.m */; };
+		2E610D9318A79FAB00639E2D /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E610D9118A79FAB00639E2D /* FriendsViewController.xib */; };
 		84D46C0C18A78CE10079918B /* DebtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D46C0A18A78CE10079918B /* DebtsViewController.m */; };
 		84D46C0D18A78CE10079918B /* DebtsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D46C0B18A78CE10079918B /* DebtsViewController.xib */; };
 		982B74765E0C4815835D333D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C822D94E8BA446890E2B74F /* libPods.a */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E610D8F18A79FAB00639E2D /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		2E610D9018A79FAB00639E2D /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		2E610D9118A79FAB00639E2D /* FriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
 		5C822D94E8BA446890E2B74F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D46C0918A78CE10079918B /* DebtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebtsViewController.h; sourceTree = "<group>"; };
 		84D46C0A18A78CE10079918B /* DebtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebtsViewController.m; sourceTree = "<group>"; };
@@ -92,6 +97,9 @@
 				84D46C0918A78CE10079918B /* DebtsViewController.h */,
 				84D46C0A18A78CE10079918B /* DebtsViewController.m */,
 				84D46C0B18A78CE10079918B /* DebtsViewController.xib */,
+				2E610D8F18A79FAB00639E2D /* FriendsViewController.h */,
+				2E610D9018A79FAB00639E2D /* FriendsViewController.m */,
+				2E610D9118A79FAB00639E2D /* FriendsViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E610D9318A79FAB00639E2D /* FriendsViewController.xib in Resources */,
 				B588537B18A782C70086BDD4 /* InfoPlist.strings in Resources */,
 				84D46C0D18A78CE10079918B /* DebtsViewController.xib in Resources */,
 				B588538318A782C70086BDD4 /* Images.xcassets in Resources */,
@@ -310,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E610D9218A79FAB00639E2D /* FriendsViewController.m in Sources */,
 				B588538118A782C70086BDD4 /* AppDelegate.m in Sources */,
 				84D46C0C18A78CE10079918B /* DebtsViewController.m in Sources */,
 				B588537D18A782C70086BDD4 /* main.m in Sources */,
