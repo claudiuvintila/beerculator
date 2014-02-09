@@ -10,10 +10,13 @@
 #import "Utils.h"
 #import "FriendsViewController.h"
 @interface DebtsViewController ()
-
 @end
 
 @implementation DebtsViewController
+
+@synthesize beersToGive;
+@synthesize beersToRecieve;
+@synthesize debtTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +25,9 @@
         // Custom initialization
         
         self.title = @"Debts";
+        
+        self.beersToRecieve = NULL;
+        self.beersToGive    = NULL;
     }
     return self;
 }
@@ -41,11 +47,9 @@
         logInController.delegate = self;
         [self presentViewController:logInController animated:YES completion:NULL];
     }
-    FriendsViewController * cont = [[FriendsViewController alloc] initWithNibName:@"FriendsViewController" bundle:nil];
-    [self presentViewController:cont animated:YES completion:Nil];
-//    [Utils storeDebt:[NSNumber numberWithInt:3] forUsername:@"silviuvert"];
-//    [Utils allDebts:currentUser];
 
+    [Utils allDebtsForUser:currentUser forDelegate:self];
+    [Utils allDebtsFromOthers:currentUser forDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +61,101 @@
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
     [logInController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)setBeersToGiveAndReload:(NSArray *)beersToGiveArray
+{
+    self.beersToGive = beersToGiveArray;
+
+    [self.debtTable reloadData];
+}
+
+- (void)setBeersToRecieveAndReload:(NSArray *)beersToRecieveArray
+{
+    self.beersToRecieve = beersToRecieveArray;
+    
+    [self.debtTable reloadData];
+}
+
+# pragma mark -
+# pragma mark Table view delegate methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        if (self.beersToGive != NULL) {
+            return [self.beersToGive count];
+        }
+    }
+
+    if (section == 1) {
+        if (self.beersToRecieve != NULL) {
+            return [self.beersToRecieve count];
+        }
+    }
+
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        if (self.beersToGive != NULL) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"debt_cell"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"debt_cell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            
+            PFObject * debt = [self.beersToGive objectAtIndex:indexPath.row];
+            NSString * beers = [[debt valueForKey:@"beers"] stringValue];
+            NSString * username = ((PFUser *)[debt valueForKey:@"destination_user"])[@"username"];
+            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Beers to give: %@", beers];
+            cell.textLabel.text = username;
+            
+            return cell;
+        }
+    }
+    
+    if (indexPath.section == 1) {
+        if (self.beersToRecieve != NULL) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"debt_cell"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"debt_cell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            
+            PFObject * debt = [self.beersToRecieve objectAtIndex:indexPath.row];
+            NSString * beers = [[debt valueForKey:@"beers"] stringValue];
+            NSString * username = ((PFUser *)[debt valueForKey:@"source_user"])[@"username"];
+            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Beers to recieve: %@", beers];
+            cell.textLabel.text = username;
+            
+            return cell;
+        }
+    }
+    
+    return  NULL;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Outgoing beers:";
+    }
+    
+    if (section == 1) {
+        return  @"Incomming beers:";
+    }
+    
+    return @"";
 }
 
 @end

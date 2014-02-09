@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "DebtsViewController.h"
 
 @interface Utils : NSObject
 
 + (void)storeDebt:(NSNumber *)debt forUsername:(NSString *)username;
-+ (void)allDebts:(PFObject *)currentUser;
++ (void)allDebtsForUser:(PFObject *)currentUser forDelegate:(DebtsViewController *)delegate;
++ (void)allDebtsFromOthers:(PFObject *)currentUser forDelegate:(DebtsViewController *)delegate;
 @end
