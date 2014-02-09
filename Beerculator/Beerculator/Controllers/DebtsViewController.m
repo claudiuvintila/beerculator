@@ -7,6 +7,7 @@
 //
 
 #import "DebtsViewController.h"
+#import "Utils.h"
 
 @interface DebtsViewController ()
 
@@ -33,12 +34,16 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         // do stuff with the user
+        NSLog(@"%@", currentUser);
     } else {
         // show the signup or login screen
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.delegate = self;
         [self presentViewController:logInController animated:YES completion:NULL];
     }
+    
+//    [Utils storeDebt:[NSNumber numberWithInt:3] forUsername:@"silviuvert"];
+    [Utils allDebts:currentUser];
 }
 
 - (void)didReceiveMemoryWarning

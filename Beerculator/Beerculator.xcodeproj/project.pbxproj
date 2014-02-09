@@ -22,6 +22,7 @@
 		B588538C18A782C70086BDD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B588537418A782C70086BDD4 /* UIKit.framework */; };
 		B588539418A782C70086BDD4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B588539218A782C70086BDD4 /* InfoPlist.strings */; };
 		B588539618A782C70086BDD4 /* BeerculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B588539518A782C70086BDD4 /* BeerculatorTests.m */; };
+		B58853A218A7A64F0086BDD4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = B58853A118A7A64F0086BDD4 /* Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		B588539118A782C70086BDD4 /* BeerculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeerculatorTests-Info.plist"; sourceTree = "<group>"; };
 		B588539318A782C70086BDD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B588539518A782C70086BDD4 /* BeerculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeerculatorTests.m; sourceTree = "<group>"; };
+		B58853A018A7A64F0086BDD4 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		B58853A118A7A64F0086BDD4 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		F69DC7D5EC5B434D9976A234 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +131,7 @@
 		B588537618A782C70086BDD4 /* Beerculator */ = {
 			isa = PBXGroup;
 			children = (
+				B588539F18A7A62C0086BDD4 /* Utils */,
 				84D46C0818A78C9A0079918B /* Controllers */,
 				B588537F18A782C70086BDD4 /* AppDelegate.h */,
 				B588538018A782C70086BDD4 /* AppDelegate.m */,
@@ -164,6 +168,15 @@
 				B588539218A782C70086BDD4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B588539F18A7A62C0086BDD4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B58853A018A7A64F0086BDD4 /* Utils.h */,
+				B58853A118A7A64F0086BDD4 /* Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +313,7 @@
 				B588538118A782C70086BDD4 /* AppDelegate.m in Sources */,
 				84D46C0C18A78CE10079918B /* DebtsViewController.m in Sources */,
 				B588537D18A782C70086BDD4 /* main.m in Sources */,
+				B58853A218A7A64F0086BDD4 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
