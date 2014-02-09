@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "DebtsViewController.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
@@ -16,6 +18,17 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [Parse setApplicationId:@"61HNOaX69a3xQ3kecA0NYUlufeIMgprKKmAcYwhh"
+                  clientKey:@"vJEH21YRObcGWT9z7uNr0NHaRXY9DvPGCLO90W5O"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    DebtsViewController * debtsController = [[DebtsViewController alloc] init];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:debtsController];
+    
+    self.window.rootViewController = navigationController;
+    
     return YES;
 }
 
